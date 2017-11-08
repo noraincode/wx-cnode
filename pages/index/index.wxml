@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 侧边栏 -->
+  <view class="page-bottom">
+    <view class="page-content">
+        <view  class="wc">
+            <text>第一个item1</text>
+        </view>
+        <view  class="wc">
+            <text>第二个item2</text>
+        </view>
+        <view  class="wc">
+            <text>第三个item3</text>
+        </view>
+        <view  class="wc">
+            <text>关于</text>
+        </view>
+    </view>
+  </view> 
+  <!-- 主界面 -->
+  <view class="page-top {{open ? 'c-state1' : ''}}">
+    <!-- Logo 及 侧边按钮 -->
+    <view class="logo-box">
+      <view class="logo-btn">
+          <image class="btn-image" mode="scaleToFill" bindtap="tap_ch" src="../../images/default.png"></image>  
+      </view> 
+      <view class="logo">
+        <image mode="" class="logo-image" src="../../images/cnodejs_light.svg"></image>
+      </view>
+    </view>
+    <!-- 分类 及 列表 -->
+    <view class="main" bindtap="{{open ? 'tap_ch' : ''}}">
+      <!-- 列表 -->
+      <scroll-view class="content" scroll-y enable-back-to-top='true'>
+        <block wx:key="item" wx:for="{{articleList}}">
+          <!-- 文章信息卡片 -->
+          <view class="article-card">
+            <view class='header'>
+              <span class="weui-badge" style="{{item.top ? 'background-color: #80bd01;' : ''}}">{{item.top ? '置顶' : '' }}</span>
+              <span class="time"><span style="color: #80bd01;">{{item.reply_count}}</span> / {{item.visit_count}} - {{item.last_reply_at}}</span>
+            </view>
+            <view class='detail'>
+              <span>{{item.title}}</span>
+              <!-- <rich-text class="article-detail">{{item.content}}</rich-text> -->
+            </view>
+            <view class='footer'>
+              <span>创建于：{{item.create_at}}</span>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view> 
+</view>

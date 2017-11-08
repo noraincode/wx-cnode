@@ -1,0 +1,111 @@
+/**index.wxss**/
+.logo-box{
+  width:100%;
+  padding:10rpx 10rpx 20rpx 10rpx;
+  height:65rpx;
+  background-color:#444;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.logo-box .logo{
+  height:100%;
+  width:100%;
+}
+.logo-box .logo-btn{
+  background:#eee;
+  width:45px;
+  height:35px;
+  position:absolute;
+  left:0;
+  top:6px;
+  border-top-right-radius:20px;
+  border-bottom-right-radius:20px;
+}
+.logo-btn .btn-image {
+  width:33px;
+  height:33px;
+  border-radius:50%;
+  margin-left:10px;
+  margin-top:1px;
+}
+
+.logo-image{
+  display:inline;
+}
+.logo-btn {
+  display:inline;
+}
+
+.page-bottom{
+  height: 100%;
+  width: 750rpx;
+  position: fixed; 
+  background-color: #444;
+  z-index: 0;
+}
+
+.page-top{
+  height: 100%;
+  position: fixed;
+  width: 750rpx;
+  background-color: #eee;
+  z-index: 0;
+  transition: All 0.4s ease; 
+  -webkit-transition: All 0.4s ease;
+}
+
+.wc{
+  color: white;
+  padding: 30rpx 0 30rpx 40rpx;
+}
+
+.c-state1{
+  transform: rotate(0deg) scale(1) translate(65%,0%); 
+  -webkit-transform: rotate(0deg) scale(1) translate(65%,0%); 
+}
+
+.main{
+  background-color:#e1e1e1;
+}
+.main .content {
+  min-height: 0px;
+  height:1120rpx;
+}
+
+.main .content .article-card{
+  height: 145px;
+  background: #fff;
+  margin-bottom: 10px;
+  padding:10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-detail{
+  font-size: 14px;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.article-card .header{
+  display:flex;
+  justify-content:space-between;
+  height:18px;
+}
+
+.header .time{
+  color: #aaa;
+  font-size: 14px;
+}
+
+.article-card .detail{
+}
+
+.article-card .user{
+
+}
+
+.article-card .footer{
+  height: 50px;
+}
