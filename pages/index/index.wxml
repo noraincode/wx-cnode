@@ -3,17 +3,20 @@
   <!-- 侧边栏 -->
   <view class="page-bottom">
     <view class="page-content">
-        <view  class="wc">
-            <text>第一个item1</text>
+        <view class="wc">
+            <text>首页</text>
         </view>
-        <view  class="wc">
-            <text>第二个item2</text>
+        <view class="wc">
+            <text>发布</text>
         </view>
-        <view  class="wc">
-            <text>第三个item3</text>
+        <view class="wc">
+            <text>个人</text>
         </view>
-        <view  class="wc">
+        <view class="wc">
             <text>关于</text>
+        </view>
+        <view class="wc">
+            <text>登录</text>
         </view>
     </view>
   </view> 
@@ -39,12 +42,16 @@
               <span class="weui-badge" style="{{item.top ? 'background-color: #80bd01;' : ''}}">{{item.top ? '置顶' : '' }}</span>
               <span class="time"><span style="color: #80bd01;">{{item.reply_count}}</span> / {{item.visit_count}} - {{item.last_reply_at}}</span>
             </view>
-            <view class='detail'>
-              <span>{{item.title}}</span>
+            <view class='title'>
+              <span style="font-size:16px;">{{item.title}}</span>
               <!-- <rich-text class="article-detail">{{item.content}}</rich-text> -->
             </view>
+            <view class='detail'>
+            </view>
             <view class='footer'>
-              <span>创建于：{{item.create_at}}</span>
+              <!-- <image scr="{{item.author.avatar_url}}"></image> -->
+              <span class="item" style="color: #aaa; font-size: 12px;">{{item.author.loginname}}</span>
+              <span class="create-time"style="color: #aaa; font-size: 12px;">创建于：{{item.create_at}}</span>
             </view>
           </view>
         </block>

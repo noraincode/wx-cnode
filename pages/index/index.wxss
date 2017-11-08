@@ -80,6 +80,7 @@
   padding:10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .article-detail{
@@ -100,6 +101,7 @@
 }
 
 .article-card .detail{
+  height:60px;
 }
 
 .article-card .user{
@@ -107,5 +109,9 @@
 }
 
 .article-card .footer{
-  height: 50px;
+  height:25px;
+}
+
+.footer .create-time {
+  align-self:flex-end;
 }

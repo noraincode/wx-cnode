@@ -3,6 +3,7 @@
 const app = getApp()
 
 const util = require('../../utils/util.js')
+const rp = require('../../utils/wx-request-promise.js')
 
 Page({
   data: {
@@ -32,30 +33,31 @@ Page({
     }
   },
   onLoad: function () {
-    wx.request({
-      url: `${app.globalData.baseUrl}/topics`,
-      data: {
-        page: 1,
-        tab: 'all',
-        limit: 10,
-        mdrender : false
-      },
-      success: res => {
-        if (res.statusCode === 200) {
-          let dealList = []
-          for (let item of res.data.data) {
-            let tmp = item
-            tmp.create_at = util.formatTime(new Date(tmp.create_at))
-            tmp.last_reply_at = util.getDateDiff(Date.parse(tmp.last_reply_at));
-            dealList.push(tmp)
-          }
-          this.setData({
-            articleList: dealList
-          })
-          console.log(dealList)
+    const url = `${app.globalData.baseUrl}/topics`
+    const rq_data = {
+      page: 1,
+      tab: 'all',
+      limit: 10,
+      mdrender: false
+    }
+    const options = {
+      method: 'GET'
+    }
+    rp.wxRequest(`${app.globalData.baseUrl}/topics`, rq_data, options)
+      .then((res) => {
+        let dealList = []
+        for (let item of res.data) {
+          let tmp = item
+          tmp.create_at = util.formatTime(new Date(tmp.create_at))
+          tmp.last_reply_at = util.getDateDiff(Date.parse(tmp.last_reply_at));
+          dealList.push(tmp)
         }
-      }
-    })
+        this.setData({
+          articleList: dealList
+        })
+        console.log(dealList)
+      })
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
